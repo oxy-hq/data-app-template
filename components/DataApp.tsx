@@ -12,10 +12,9 @@ const FILE_PATHS = {
    *   table2: "path/to/your/file2.parquet",
    * }
    */
-
-
 };
 
+// Oxy SDK document: https://www.npmjs.com/package/@oxy-hq/sdk
 export function DataApp() {
   return (
     <OxyProvider files={FILE_PATHS} useAsync>
