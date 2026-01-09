@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@oxy-hq/sdk':
-        specifier: ^0.2.3
-        version: 0.2.3(@duckdb/duckdb-wasm@1.32.0)(react@19.2.3)
+        specifier: ^0.2.4
+        version: 0.2.4(@duckdb/duckdb-wasm@1.32.0)(react@19.2.3)
       next:
         specifier: 16.1.1
         version: 16.1.1(@babel/core@7.28.5)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
@@ -411,8 +411,8 @@ packages:
     resolution: {integrity: sha512-nn5ozdjYQpUCZlWGuxcJY/KpxkWQs4DcbMCmKojjyrYDEAGy4Ce19NN4v5MduafTwJlbKc99UA8YhSVqq9yPZA==}
     engines: {node: '>=12.4.0'}
 
-  '@oxy-hq/sdk@0.2.3':
-    resolution: {integrity: sha512-cXrETIqBIU28+s1sVz9gLd9rctQJwvUtMYSdF2xaQPsfTbjMXU90G2fdd0Ufl07LRQGwUz+fMjAWlNuj2poGjQ==}
+  '@oxy-hq/sdk@0.2.4':
+    resolution: {integrity: sha512-cPZ9HdPcRtQT7qhQE3iyzGwgi88aMj9FZQ/RCTJuUxzFIpRmtN7NYJMKbMtFBAOZlWv3d3slhoU+uX/0WMnXcQ==}
     engines: {node: '>=18.0.0'}
     peerDependencies:
       '@duckdb/duckdb-wasm': ^1.29.0
@@ -2331,7 +2331,7 @@ snapshots:
 
   '@nolyfill/is-core-module@1.0.39': {}
 
-  '@oxy-hq/sdk@0.2.3(@duckdb/duckdb-wasm@1.32.0)(react@19.2.3)':
+  '@oxy-hq/sdk@0.2.4(@duckdb/duckdb-wasm@1.32.0)(react@19.2.3)':
     dependencies:
       '@duckdb/duckdb-wasm': 1.32.0
     optionalDependencies:
