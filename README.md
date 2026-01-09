@@ -20,6 +20,78 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## Use oxy sdk
+
+```tsx
+// App.tsx
+const FILE_PATHS = {
+  table1: "table1.parquet",
+  table2: "table2.parquet",
+  table3: "table3.parquet",
+};
+
+function App() {
+  return (
+    <OxyProvider files={FILE_PATHS} useAsync>
+      {children}
+    </OxyProvider>
+  );
+}
+```
+
+```tsx
+// Dashboard.tsx
+function Dashboard() {
+  const { sdk, isLoading, error } = useOxy();
+
+  if (isLoading) {
+    return <LoadingComponent />;
+  }
+
+  if (!sdk) {
+    return;
+    error ? (
+      <ErrorPage>Failed to initialize sdk: {JSON.stringify(error)}</ErrorPage>
+    ) : (
+      <div>Oxy SDK is not initialized</div>
+    );
+  }
+
+  return <DataApp />;
+}
+```
+
+```tsx
+// DataApp.tsx
+function DataApp {
+  const { sdk } = useOxy();
+  const [data, setData] = useState<TableData>(null);
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    const loadData = async () => {
+      const result: QueryResult = await sdk.query(`SELECT * FROM ${name} LIMIT 100`);
+
+      const tableData: TableData = {
+        columns: result.columns,
+        rows: result.rows,
+        total_rows: result.rowCount
+      };
+
+      setData(tableData);
+    }
+  }, []);
+
+  return (
+    <div>
+      {/**
+      * Data app components
+      */}
+    </div>
+  )
+}
+```
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
