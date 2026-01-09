@@ -2,6 +2,7 @@
 
 import { OxyProvider } from "@oxy-hq/sdk";
 import { Dashboard } from "./Dashboard";
+import { ErrorBoundary } from "./ErrorBoundary";
 
 const FILE_PATHS = {
   /**
@@ -17,8 +18,10 @@ const FILE_PATHS = {
 // Oxy SDK document: https://www.npmjs.com/package/@oxy-hq/sdk
 export function DataApp() {
   return (
-    <OxyProvider files={FILE_PATHS} useAsync>
-      <Dashboard />
-    </OxyProvider>
+    <ErrorBoundary>
+      <OxyProvider files={FILE_PATHS} useAsync>
+        <Dashboard />
+      </OxyProvider>
+    </ErrorBoundary>
   );
 }
